@@ -9,11 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('email');
+            $table->string('cargo')->nullable();
+            $table->string('telefone');
+            $table->string('cpf');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
